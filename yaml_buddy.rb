@@ -1,6 +1,6 @@
-require 'yaml'
 # Module that can be included (mixin) to take and output Yaml data
 module YamlBuddy
+  require 'yaml'
   # take_yaml: converts a String with Yaml data into @data
   # parameter: yaml - a String in Yaml format
   def take_yaml(yaml)
