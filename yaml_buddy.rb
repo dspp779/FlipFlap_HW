@@ -10,6 +10,6 @@ module YamlBuddy
   # to_yaml: converts @data into yaml string
   # returns: String in Yaml format
   def to_yaml
-    data.to_yaml
+    @data.to_yaml
   end
 end

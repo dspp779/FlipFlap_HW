@@ -8,12 +8,15 @@ module TsvBuddy
     @data = CSV.parse(tsv, col_sep: "\t", headers: true).map(&:to_h)
   end
 
+  def headers
+    @data.first.keys
+  end
+
   # to_tsv: converts @data into tsv string
   # returns: String in TSV format
   def to_tsv
-    CSV.generate(col_sep: "\t") do |tsv|
-      tsv << data.first.keys
-      data.to_a.each { |item| tsv << item.values }
+    CSV.generate(col_sep: "\t", write_headers: true, headers: headers) do |tsv|
+      @data.each { |item| tsv << item.values }
     end
   end
 end
